@@ -1,0 +1,23 @@
+{% extends "pianos/layout.html" %}
+
+{% block body %}
+
+<div id="index-container">
+    <h1>Pianos</h1>
+    <ol>
+        {% for piano in pianos %}
+            <li>Brand: <a href="{% url 'piano_detail' piano.brand %}">{{ piano.brand }}</a>, Price: ${{ piano.price|floatformat:"2g" }}, 
+            Finish: {{ piano.finish }}</li>
+        {% endfor %}
+    </ol>
+    <div>
+        <a href="{% url 'add_piano' %}">Add a piano</a>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
